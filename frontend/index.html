@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Financeiro</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div id="toast"></div>
+        <h1>💰 Controle Financeiro</h1>
+        <p>Gerencie seus gastos de forma inteligente</p>
+        <button id="toggleTheme">🌙 Modo Escuro</button>
+      </header>
+
+      <section class="dashboard">
+        <div class="info-card">
+          <h3>Total Gasto</h3>
+          <span id="total">R$ 0,00</span>
+        </div>
+
+        <div class="info-card">
+          <h3>Quantidade</h3>
+          <span id="quantidade">0</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Novo Gasto</h2>
+
+        <input type="text" id="descricao" placeholder="Descrição" />
+
+        <input type="number" id="valor" placeholder="Valor" />
+
+        <input type="text" id="categoria" placeholder="Categoria" />
+
+        <button onclick="adicionarGasto()">Adicionar</button>
+      </section>
+
+      <section class="card">
+        <h2>Gastos Cadastrados</h2>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody id="tabelaGastos"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
