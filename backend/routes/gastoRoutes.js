@@ -8,33 +8,33 @@ const Gasto = require("../models/Gasto");
 /**
  * @swagger
  * /gastos:
- * post:
- * summary: Cria um novo gasto
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * required:
- * - categoria
- * - valor
- * - descricao
- * properties:
- * categoria:
- * type: string
- * example: "Alimentação"
- * valor:
- * type: number
- * example: 45.50
- * descricao:
- * type: string
- * example: "Almoço no restaurante"
- * responses:
- * 201:
- * description: Gasto criado
- * 500:
- * description: Erro no servidor
+ *   post:
+ *     summary: Cria um novo gasto
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - categoria
+ *               - valor
+ *               - descricao
+ *             properties:
+ *               categoria:
+ *                 type: string
+ *                 example: "Alimentação"
+ *               valor:
+ *                 type: number
+ *                 example: 45.50
+ *               descricao:
+ *                 type: string
+ *                 example: "Almoço no restaurante"
+ *     responses:
+ *       201:
+ *         description: Gasto criado
+ *       500:
+ *         description: Erro no servidor
  */
 
 router.post("/gastos", async (req, res) => {
@@ -80,31 +80,35 @@ router.get("/gastos", async (req, res) => {
 /**
  * @swagger
  * /gastos/{id}:
- * put:
- * summary: Atualiza um gasto
- * parameters:
- * - in: path
- * name: id
- * required: true
- * schema:
- * type: string
- * description: ID do gasto
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * categoria:
- * type: string
- * valor:
- * type: number
- * descricao:
- * type: string
- * responses:
- * 200:
- * description: Gasto atualizado
+ *   put:
+ *     summary: Atualiza um gasto
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do gasto
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               categoria:
+ *                 type: string
+ *               valor:
+ *                 type: number
+ *               descricao:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Gasto atualizado
+ *       404:
+ *         description: Gasto não encontrado
+ *       500:
+ *         description: Erro no servidor
  */
 
 router.put("/gastos/:id", async (req, res) => {
@@ -138,18 +142,22 @@ router.put("/gastos/:id", async (req, res) => {
 /**
  * @swagger
  * /gastos/{id}:
- * delete:
- * summary: Remove um gasto
- * parameters:
- * - in: path
- * name: id
- * required: true
- * schema:
- * type: string
- * description: ID do gasto
- * responses:
- * 200:
- * description: Gasto removido
+ *   delete:
+ *     summary: Remove um gasto
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do gasto
+ *     responses:
+ *       200:
+ *         description: Gasto removido
+ *       404:
+ *         description: Gasto não encontrado
+ *       500:
+ *         description: Erro no servidor
  */
 
 router.delete("/gastos/:id", async (req, res) => {
