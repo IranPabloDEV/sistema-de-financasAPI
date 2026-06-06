@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/gastos";
+const API_URL = "https://sistema-de-financasapi.onrender.com/gastos";
 
 let gastos = [];
 
